@@ -26,7 +26,7 @@ use App\Http\Controllers\Admin\ContactController;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
+| routes are loaded by the RouteServiceProvider and all of them will 
 | be assigned to the "web" middleware group. Make something great!
 |
 */
@@ -167,15 +167,13 @@ Route::prefix('admin')->group(function () {
                 Route::post('contactmessage/toggle-read/{id}', [ContactMessageController::class, 'toggleReadStatus'])->name('contactmessage.toggle-read');
 
 
-                        // Contact routes
+                // Contact routes
                 Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
                 Route::get('contact/create', [ContactController::class, 'create'])->name('contact.create');
                 Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
                 Route::get('contact/{id}/edit', [ContactController::class, 'edit'])->name('contact.edit');
                 Route::put('contact/{id}', [ContactController::class, 'update'])->name('contact.update');
                 Route::delete('contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
-
-
 
         });
     });
