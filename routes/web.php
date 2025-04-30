@@ -18,7 +18,8 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\ContactMessageController as FrontContactMessageController;
-use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Admin\ContactController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -164,6 +165,17 @@ Route::prefix('admin')->group(function () {
                 Route::delete('contactmessage/{id}', [ContactMessageController::class, 'destroy'])->name('contactmessage.destroy');
                 Route::post('contactmessage/bulk-delete', [ContactMessageController::class, 'bulkDelete'])->name('contactmessage.bulk-delete');
                 Route::post('contactmessage/toggle-read/{id}', [ContactMessageController::class, 'toggleReadStatus'])->name('contactmessage.toggle-read');
+
+
+                        // Contact routes
+                Route::get('contact', [ContactController::class, 'index'])->name('contact.index');
+                Route::get('contact/create', [ContactController::class, 'create'])->name('contact.create');
+                Route::post('contact', [ContactController::class, 'store'])->name('contact.store');
+                Route::get('contact/{id}/edit', [ContactController::class, 'edit'])->name('contact.edit');
+                Route::put('contact/{id}', [ContactController::class, 'update'])->name('contact.update');
+                Route::delete('contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+
 
         });
     });

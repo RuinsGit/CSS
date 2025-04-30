@@ -145,6 +145,13 @@
                         </a>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="{{ route('back.pages.contact.index') }}" class="waves-effect" style="background: #111; border-left: 3px solid #fff;">
+                        <i class="ri-mail-line" style="color: white;"></i>
+                        <span style="color: white;">Əlaqə</span>
+                    </a>
+                </li>
                 
                 <li>
                     <a href="{{ route('back.pages.contactmessage.index') }}" class="waves-effect" style="background: #111; border-left: 3px solid #fff;">
