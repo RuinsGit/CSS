@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\Admin\AboutCenterCartController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\ServiceCategoryController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -138,6 +140,16 @@ Route::prefix('admin')->group(function () {
                Route::resource('team', TeamController::class);
                Route::post('team/toggle-status/{id}', [TeamController::class, 'toggleStatus'])->name('team.toggle-status');
                Route::post('team/order', [TeamController::class, 'order'])->name('team.order');
+
+               // Service routes
+               Route::resource('services', ServiceController::class);
+               Route::post('services/toggle-status/{id}', [ServiceController::class, 'toggleStatus'])->name('services.toggle-status');
+               Route::post('services/order', [ServiceController::class, 'order'])->name('services.order');
+
+               // Service Category routes
+               Route::resource('service-categories', ServiceCategoryController::class);
+               Route::post('service-categories/toggle-status/{id}', [ServiceCategoryController::class, 'toggleStatus'])->name('service-categories.toggle-status');
+               Route::post('service-categories/order', [ServiceCategoryController::class, 'order'])->name('service-categories.order');
 
 
 

@@ -121,6 +121,33 @@
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect" style="background: #111; border-left: 3px solid #fff;">
+                        <i class="ri-customer-service-line" style="color: white;"></i>
+                        <span style="color: white;">Xidmətlər</span>
+                    </a>
+                    <ul class="sub-menu" style="background: #111; border-left: 3px solid #fff;">
+                        <li>
+                            <a href="{{ route('back.pages.services.index') }}" style="color: white;">
+                                <i class="ri-list-check" style="color: white;"></i>
+                                <span>Xidmətlər Siyahısı</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('back.pages.service-categories.index') }}" style="color: white;">
+                                <i class="ri-list-check" style="color: white;"></i>
+                                <span>Xidmət Kategoriyaları</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('back.pages.services.create') }}" style="color: white;">
+                                <i class="ri-add-line" style="color: white;"></i>
+                                <span>Yeni Xidmət</span>
+                            </a>
+                        </a>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" style="background: #111; border-left: 3px solid #fff;">
                         <i class="ri-home-line" style="color: white;"></i>
                         <span style="color: white;">Ana Səhifə</span>
                     </a>
@@ -147,8 +174,6 @@
                         
                 </li>
 
-                
-             
 
               
 
