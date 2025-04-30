@@ -145,6 +145,19 @@
                         </a>
                     </ul>
                 </li>
+                
+                <li>
+                    <a href="{{ route('back.pages.contactmessage.index') }}" class="waves-effect" style="background: #111; border-left: 3px solid #fff;">
+                        <i class="ri-mail-line" style="color: white;"></i>
+                        <span style="color: white;">Müraciətlər</span>
+                        @php
+                            $unreadCount = \App\Models\ContactMessage::unread()->count();
+                        @endphp
+                        @if($unreadCount > 0)
+                            <span class="badge rounded-pill bg-danger float-end">{{ $unreadCount }}</span>
+                        @endif
+                    </a>
+                </li>
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect" style="background: #111; border-left: 3px solid #fff;">

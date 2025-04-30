@@ -16,6 +16,9 @@ use App\Http\Controllers\Admin\AboutCenterCartController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
+use App\Http\Controllers\Admin\ContactMessageController;
+use App\Http\Controllers\ContactMessageController as FrontContactMessageController;
+use App\Http\Controllers\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +36,10 @@ Route::get('/', function () {
         }
         return redirect()->route('admin.login');
 });
+
+// Frontend İletişim Route'ları
+Route::get('/contactmessage', [FrontContactMessageController::class, 'index'])->name('contactmessage');
+Route::post('/contactmessage', [FrontContactMessageController::class, 'store'])->name('contactmessage.store');
 
 Route::prefix('admin')->group(function () {
     Route::get('/', function () {
@@ -151,15 +158,13 @@ Route::prefix('admin')->group(function () {
                Route::post('service-categories/toggle-status/{id}', [ServiceCategoryController::class, 'toggleStatus'])->name('service-categories.toggle-status');
                Route::post('service-categories/order', [ServiceCategoryController::class, 'order'])->name('service-categories.order');
 
-
-
-
-
-
-
+                // ContactMessage Routes
+                Route::get('contactmessage', [ContactMessageController::class, 'index'])->name('contactmessage.index');
+                Route::get('contactmessage/{id}', [ContactMessageController::class, 'show'])->name('contactmessage.show');
+                Route::delete('contactmessage/{id}', [ContactMessageController::class, 'destroy'])->name('contactmessage.destroy');
+                Route::post('contactmessage/bulk-delete', [ContactMessageController::class, 'bulkDelete'])->name('contactmessage.bulk-delete');
+                Route::post('contactmessage/toggle-read/{id}', [ContactMessageController::class, 'toggleReadStatus'])->name('contactmessage.toggle-read');
 
         });
-
-        
     });
 });
