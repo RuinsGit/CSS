@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\ContactMessageController as FrontContactMessageController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CertificateController;
 
 /*
 |--------------------------------------------------------------------------
@@ -174,6 +176,16 @@ Route::prefix('admin')->group(function () {
                 Route::get('contact/{id}/edit', [ContactController::class, 'edit'])->name('contact.edit');
                 Route::put('contact/{id}', [ContactController::class, 'update'])->name('contact.update');
                 Route::delete('contact/{id}', [ContactController::class, 'destroy'])->name('contact.destroy');
+
+                // Blog routes
+                Route::resource('blog', BlogController::class);
+                Route::post('blog/toggle-status/{id}', [BlogController::class, 'toggleStatus'])->name('blog.toggle-status');
+                Route::post('blog/order', [BlogController::class, 'order'])->name('blog.order');
+
+                // Certificate routes
+                Route::resource('certificates', CertificateController::class);
+                Route::post('certificates/toggle-status/{id}', [CertificateController::class, 'toggleStatus'])->name('certificates.toggle-status');
+                Route::post('certificates/order', [CertificateController::class, 'order'])->name('certificates.order');
 
         });
     });
